@@ -4,6 +4,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-connect");
+  grunt.loadNpmTasks("grunt-contrib-clean");
 
   // Project configuration.
   grunt.initConfig({
@@ -70,7 +71,9 @@ module.exports = function(grunt) {
           open: true
         }
       }
-    }
+    },
+
+    clean: ["target/"]
   });
   
   grunt.event.on("watch", function(action, filepath, target) {
@@ -78,5 +81,5 @@ module.exports = function(grunt) {
   });
 
   // Default task(s).
-  grunt.registerTask("default", ["htmlbuild:dev", "browserify:dev", "copy", "connect", "watch"]);
+  grunt.registerTask("default", ["clean", "htmlbuild:dev", "browserify:dev", "copy", "connect", "watch"]);
 };
