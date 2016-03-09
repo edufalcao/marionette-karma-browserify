@@ -21,14 +21,18 @@ module.exports = function(grunt) {
     },
 
     browserify: {
+      options: {
+        debug: true,
+        transform: ["hbsfy"]
+      },
+
       dev: {
         files: {
           "target/app.js": ["app/js/app.js"]
         },
+
         options: {
-          debug: true,
           watch: true
-          //transform: [""]
         }
       }
     },
