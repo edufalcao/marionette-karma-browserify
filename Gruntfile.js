@@ -59,6 +59,10 @@ module.exports = function(grunt) {
 
       js: {
         files: ["app/**/*.js"]
+      },
+
+      templates: {
+        files: ["app/**/*.hbs"]
       }
     },
 
